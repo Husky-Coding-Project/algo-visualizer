@@ -4,12 +4,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-// import "./BinarySearch.css";
+import "./BinarySearch.css";
 import Controls from "../../components/Controls";
 import Array1D from "../../components/Array1D";
 import StepTracker from "../../components/StepTracker";
 import { useDispatch, useSelector } from "react-redux";
-import AlgorithmPopover from "../../components/AlgorithmPopover";
 import { resetSteps, updateAlgorName } from "../../redux/stateSlice";
 import VisualizerContainer from "../../components/VisualizerContainer";
 
@@ -119,28 +118,6 @@ const BinarySearch = () => {
     return (
         <div className="content">
             <div className="centered">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-10">
-                            <h2>Binary Search</h2>
-                        </div>
-                        <AlgorithmPopover 
-                            data = {
-                                {
-                                    algorithm: "Binary Search",
-                                    title : "Binary search finds the position of a target value within a sorted array by comparing the target value to the middle element of the array.",
-                                    description : [
-                                        "Worst Complexity: O(log(n))",
-                                        "In Practice Complexity: O(log(n))",
-                                        "Best Complexity: O(1)",
-                                        "Space Complexity: O(1)"
-                                    ]
-                                }
-
-                            }
-                        />
-                    </div>
-                </div>
                 <h2>{ALGORITHM_NAME}</h2>
             </div>
             {/*
@@ -178,43 +155,5 @@ const BinarySearch = () => {
         </div>
     );
 };
-
-const AlgorithmDescription = () => {
-    const [displayModal, setDisplayModal] = useState(false)
-
-    const handleClick = () => {
-        setDisplayModal(!displayModal)
-    }
-
-    // state, event handler, data
-
-    return (
-        <>
-            <div className="col-2">
-                <button className="popover-button" onClick={handleClick}>Information on algorithm / tutorial</button>
-                <div className={"algo-modal" + (displayModal ? "-block" : "")} id="algo-modal">
-                    <div className="algo-modal-header">
-                        <div className="algo-title">Binary Search</div>
-                        <button className="algo-close-button" onClick={handleClick}>&times;</button>
-                    </div>
-                    <div className="algo-modal-body">
-                        <p className="algo-desc">
-                            Binary search finds the position of a target value within a sorted array by comparing the target value to the middle element of the array.
-                        </p>
-                        <ul>
-                            <li>Worst Complexity: O(log(n))</li>
-                            <li>In Practice Complexity: O(log(n))</li>
-                            <li>Best Complexity: O(1)</li>
-                            <li>Space Complexity: O(1)</li>
-                            <li>Data Structure: Array</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className={"overlay-toggler" + (displayModal ? "-block" : "")} onClick={handleClick}></div>
-        </>
-    );
-}
-
 
 export default BinarySearch;

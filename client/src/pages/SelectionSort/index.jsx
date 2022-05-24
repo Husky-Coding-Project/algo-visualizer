@@ -8,7 +8,6 @@ import StepTracker from "../../components/StepTracker";
 import VisualizerContainer from "../../components/VisualizerContainer";
 import { animated, Transition } from "react-spring";
 import { useSelector, useDispatch } from "react-redux";
-import AlgorithmPopover from "../../components/AlgorithmPopover";
 import {
     updateAlgorSteps,
     resetSteps,
@@ -166,36 +165,13 @@ const SelectionSort = () => {
     return (
         <div className="content">
             <div className="centered">
-            <div className="container">
-                    <div className="row">
-                        <div className="col-10">
-                            <h2>Selection Sort</h2>
-                        </div>
-                        <AlgorithmPopover 
-                            data = {
-                                {
-                                    algorithm: "Selection Sort",
-                                    title : "Selection Sort is an in-place sorting algorithm that selects the smallest element of an unsorted list and places it in the beginning of the unsorted partition",
-                                    description : [
-                                        "Worst Complexity: O(n^2)",
-                                        "In Practice Complexity: O(n^2)",
-                                        "Best Complexity: O(n^2)",
-                                        "Space Complexity: O(1)",
-                                        "Stable: No"
-                                    ]
-                                }
-
-                            }
-                        />
-                    </div>
                 <h2>{ALGORITHM_NAME}</h2>
             </div>
             {/*
                 <div className="info">
                     <button className="btn">Extra Info right here</button>
-
                 </div>
-            </div>
+                */}
 
             <VisualizerContainer>
                 <Array1D drawBlocks={drawBlocks} />
